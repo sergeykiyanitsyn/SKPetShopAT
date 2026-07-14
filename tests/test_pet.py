@@ -70,7 +70,7 @@ class TestPet:
             assert response_json["name"] == payload["name"], f"Имя питомца отличается от {payload["name"]}"
             assert response_json["status"] == payload["status"], f"Статус питомца отличается от {payload["status"]}"
 
-    @allure.title("Создание нового питомца")
+    @allure.title("Создание нового питомца Собакинс")
     def test_add_pet_dog(self):
         with allure.step("Подготовка данных для создания собаки"):
             payload = {
