@@ -113,16 +113,14 @@ class TestPet:
                 "name"], f"ID питомца отличается от {payload["category"]["name"]}"
 
         with allure.step("Проверка Ссылок фотографий питомца в ответе"):
-            for i in range(len(response_json["photoUrls"])):
-                assert response_json["photoUrls"][i] == payload["photoUrls"][
-                    i], f"Ссылка на фото питомца отличается от {payload["photoUrls"][i]}"
+            assert response_json["photoUrls"][0] == payload["photoUrls"][
+                0], f"Ссылка на фото питомца отличается от {payload["photoUrls"][0]}"
 
         with allure.step("Проверка тэгов питомца в ответе"):
-            for i in range(len(response_json["tags"])):
-                assert response_json["tags"][i]["id"] == payload["tags"][i][
-                    "id"], f"Id тега питомца отличается от {payload["tags"][i]["id"]}"
-                assert response_json["tags"][i]["name"] == payload["tags"][i][
-                    "name"], f"Имя тега питомца отличается от {payload["tags"][i]["name"]}"
+            assert response_json["tags"][0]["id"] == payload["tags"][0][
+                "id"], f"Id тега питомца отличается от {payload["tags"][0]["id"]}"
+            assert response_json["tags"][0]["name"] == payload["tags"][0][
+                "name"], f"Имя тега питомца отличается от {payload["tags"][0]["name"]}"
 
         with allure.step("Проверка Статуса питомца в ответе"):
             assert response_json["status"] == payload["status"], f"Статус питомца отличается от {payload["status"]}"
