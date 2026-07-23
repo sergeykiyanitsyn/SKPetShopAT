@@ -185,3 +185,9 @@ class TestPet:
 
             if response_status_code == 200:
                 assert isinstance(response.json(), list)
+            if response_status_code == 400:
+                try:
+                    assert isinstance(response.json(), dict)
+                except requests.exceptions.JSONDecodeError:
+                    assert isinstance(response.text, str)
+                    assert response.text == "No status provided. Try again?"
